@@ -1,34 +1,30 @@
 
-function dis(val) { 
-    document.getElementById("result").value += val 
-} 
+(function (){
+    let screen = document.querySelector('.Screen');
+    let buttons = document.querySelectorAll('.btn');
+    let clear = document.querySelector('.btn-clear');
+    let equal = document.querySelector('.btn-equal');
+    
+    buttons.forEach (function(button) {
+        button.addEventListener('click', function(e) {
+            let value = e.target.dataset.num;
+            screen.value += value;
 
-function myFunction(event) { 
-    if (event.key == '0' || event.key == '1' 
-        || event.key == '2' || event.key == '3' 
-        || event.key == '4' || event.key == '5' 
-        || event.key == '6' || event.key == '7' 
-        || event.key == '8' || event.key == '9' 
-        || event.key == '+' || event.key == '-' 
-        || event.key == '*' || event.key == '/') 
-        document.getElementById("result").value += event.key; 
-} 
+        })
+    });
 
-var cal = document.getElementById("calcu"); 
-cal.onkeyup = function (event) { 
-    if (event.keyCode === 13) { 
-        console.log("Enter"); 
-        let x = document.getElementById("result").value 
-        console.log(x); 
-        solve(); 
-    } 
-} 
-  
-function solve() { 
-    let x = document.getElementById("result").value 
-    let y = math.evaluate(x) 
-    document.getElementById("result").value = y 
-} 
-function clr() { 
-    document.getElementById("result").value = "" 
-} 
+    equal.addEventListener('click', function(e) {
+        if (screen.value ==='') {
+            screen.value  = "please enter";
+        } else {
+            let answer = eval(screen.value);
+            screen.value = answer;
+        }
+    })
+
+clear.addEventListener('click', function(e) {
+    screen. value = "";
+})
+
+});
+    
