@@ -5,19 +5,17 @@
 }
 
 
-label{
-    float: center;
+.container{
+    width:100vw;
+    height:100vh;
+    background-color: white;
     color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-label1{
-    border:none;
-    border-radius:none;
-    background-color:red;
-    float: left;
-    color: #fff;
-    
-}
 
 
 
@@ -82,10 +80,4 @@ button{
 .btn-clear {
     background: red;
 }
-h3{
-        float: right;
-    border: 2px solid rgb(29, 28, 28);
-    border-radius: 5px;
-    background-color:#a87f32;
-    color: rgb(37, 75, 0);
-}
+
