@@ -1,30 +1,32 @@
+(() => {
+    const screen = document.querySelector('.Screen');
+    const buttons = document.querySelectorAll('.btn');
+    const clearBtn = document.querySelector('.btn-clear');
+    const equalBtn = document.querySelector('.btn-equal');
 
-(function (){
-    let screen = document.querySelector('.Screen');
-    let buttons = document.querySelectorAll('.btn');
-    let clear = document.querySelector('.btn-clear');
-    let equal = document.querySelector('.btn-equal');
-    
-    buttons.forEach (function(button) {
-        button.addEventListener('click', function(e) {
-            let value = e.target.dataset.num;
-            screen.value += value;
-
-        })
+    buttons.forEach(button => {
+        button.addEventListener('click', e => {
+            const value = e.target.dataset.num;
+            if (value !== undefined) {
+                screen.value += value;
+            }
+        });
     });
 
-    equal.addEventListener('click', function(e) {
-        if (screen.value ==='') {
-            screen.value  = "please enter";
+    equalBtn.addEventListener('click', () => {
+        if (screen.value.trim() === '') {
+            screen.value = "Please enter";
         } else {
-            let answer = eval(screen.value);
-            screen.value = answer;
+            try {
+                const result = eval(screen.value);
+                screen.value = result;
+            } catch (error) {
+                screen.value = "Error";
+            }
         }
-    })
+    });
 
-clear.addEventListener('click', function(e) {
-    screen. value = "";
-})
-
-});
-    
+    clearBtn.addEventListener('click', () => {
+        screen.value = "";
+    });
+})();
